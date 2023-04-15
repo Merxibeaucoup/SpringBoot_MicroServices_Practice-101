@@ -39,4 +39,24 @@ public class DepartmentServiceImpl implements DepartmentService {
 				
 	}
 
+	@Override
+	public Department getDepartmentByCode(String code) {
+		
+		if(isExistsByCode(code)) {
+			return departmentRepository.findByDepartmentCode(code).get();
+		}
+		
+		else 
+			/** using this just for testing**/
+			throw new RuntimeException("no doesnt exist");					
+		
+	}
+	
+	public boolean isExistsByCode(String code) {
+		if(departmentRepository.existsByDepartmentCode(code)) {
+			return true;
+		}
+		else return false;
+	}
+
 }
