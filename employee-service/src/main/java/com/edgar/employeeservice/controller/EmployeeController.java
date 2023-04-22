@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.edgar.employeeservice.models.Employee;
+import com.edgar.employeeservice.response.APIResponse;
 import com.edgar.employeeservice.services.EmployeeService;
 
 @RestController
@@ -27,7 +28,7 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/firstname/{firstname}")
-	public ResponseEntity<Employee> employeeByFirstName(@PathVariable String firstname){
+	public ResponseEntity<APIResponse> employeeByFirstName(@PathVariable String firstname){
 		return ResponseEntity.ok(employeeService.getByFirstName(firstname));
 	}
 	
