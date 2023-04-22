@@ -20,7 +20,9 @@ public class EmployeeService {
 	
 //	private RestTemplate restTemplate;
 	
-	private WebClient webClient;
+//	private WebClient webClient;
+	
+	private APIClient apiClient;
 	
 	
 	/** new employee **/
@@ -38,17 +40,23 @@ public class EmployeeService {
 		
 		Employee employee = employeeRepository.findByEmployeeFirstName(firstName).get();
 		
-		
+	
+		/* for restTemplate*/
 //	ResponseEntity<DepartmentRequest> responseEntity =	restTemplate.getForEntity("http://localhost:8443/api/v1/departments/"+ employee.getDepartmentCode(), DepartmentRequest.class);
-//	
 //	DepartmentRequest departmentRequest = responseEntity.getBody();
+//		
 		
-		DepartmentRequest departmentRequest = webClient
-						.get()
-						.uri("http://localhost:8444/api/v1/departments/"+ employee.getDepartmentCode())
-						.retrieve()
-						.bodyToMono(DepartmentRequest.class)
-						.block();
+		
+		/* for web client */
+//		DepartmentRequest departmentRequest = webClient
+//						.get()
+//						.uri("http://localhost:8444/api/v1/departments/"+ employee.getDepartmentCode())
+//						.retrieve()
+//						.bodyToMono(DepartmentRequest.class)
+//						.block();
+		
+		
+	DepartmentRequest departmentRequest = apiClient.getDepartmentByCode(employee.getDepartmentCode());
 		
 		
 		if(isExistsByFirstName(firstName)) {		
