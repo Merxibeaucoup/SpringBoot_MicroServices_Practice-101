@@ -1,5 +1,6 @@
 package com.edgar.employeeservice.models;
 
+import io.micrometer.common.lang.Nullable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,5 +32,8 @@ public class Employee {
 	
 	@Email
 	private String employeeEmail;
+	
+	@Nullable
+	private String departmentCode;
 
 }

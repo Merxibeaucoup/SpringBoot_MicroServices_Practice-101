@@ -2,15 +2,21 @@ package com.edgar.employeeservice.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import com.edgar.employeeservice.models.Employee;
 import com.edgar.employeeservice.repositories.EmployeeRepository;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class EmployeeService {
 	
 	@Autowired
 	private EmployeeRepository employeeRepository;
+	
+	private RestTemplate restTemplate;
 	
 	
 	/** new employee **/
