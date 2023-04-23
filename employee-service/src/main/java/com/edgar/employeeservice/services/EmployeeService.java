@@ -2,7 +2,6 @@ package com.edgar.employeeservice.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
 
 import com.edgar.employeeservice.models.Employee;
 import com.edgar.employeeservice.repositories.EmployeeRepository;
