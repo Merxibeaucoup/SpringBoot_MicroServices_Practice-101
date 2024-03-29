@@ -1,5 +1,7 @@
 package com.edgar.employeeservice.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,5 +38,17 @@ public class EmployeeController {
 	public ResponseEntity<Employee> employeeByLastname(@PathVariable String lastname){
 		return ResponseEntity.ok(employeeService.getByLastName(lastname));
 	}
+	
+	@GetMapping("/all_employees")
+	public ResponseEntity<List<Employee>> allEmployees(){
+		return ResponseEntity.ok(employeeService.allEmployeesOnly());
+	}
+	
+	
+	@GetMapping("/all")
+    public List<APIResponse> getAllEmployeesWithDepartments() {
+        return employeeService.getAllEmployeesWithDepartments();
+    }
+	
 
 }

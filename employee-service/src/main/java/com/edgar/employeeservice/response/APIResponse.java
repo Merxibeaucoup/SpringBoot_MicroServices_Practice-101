@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class APIResponse {
+	
+	// this class is responsible for comibining both employee and department 
 
 	private Employee employee;
 
